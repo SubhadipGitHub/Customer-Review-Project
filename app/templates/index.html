@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Reviews</title>
+</head>
+{% block content %}
+    <h1>Post Reviews</h1>
+<div>
+    <form method="post" action="/submit">
+        <p>
+            <label id="fname">First name:</label><br>
+            <input type="text" name="fname"><br><br>
+        </p>
+        <p>
+            <label id="pname">Product Name</label><br>
+            <input type="text" name="pname"><br><br>
+        </p>
+        <p>
+            <label id="reviews">Review:</label><br>
+            <input type="text" name="reviews"><br><br>
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br>
+    <table border = 1>
+            <tr>
+               <th> Name </th>
+                <th> Product </th>
+                <th> Review </th>
+            </tr>
+
+        <tr>
+            {% for key, value in results.items() %}
+            <td>
+            {% for i in value %}
+            {{ i }}<br>
+            {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+
+      </table>
+{% endblock %}
+    </div>
+</html>
